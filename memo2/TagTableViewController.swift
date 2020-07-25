@@ -43,28 +43,6 @@ class TagTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        let tagVC =  ViewController()
-        //tagVC.selectTag = self.tags[(self.tableView.indexPathForSelectedRow?.row)!] as! String
-        //tagVC.selectTag = self.tags[(self.tableView.indexPathForSelectedRow?.row)!]
-        tagVC.selectTag = self.tags[indexPath.row]
-        print(tagVC.selectTag)
-        // セルの選択を解除
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        // 別の画面に遷移
-        guard let parent = storyboard?.instantiateViewController(withIdentifier: "parentViewController") as? ViewController else {
-            fatalError()
-        }
-        parent.refresh(self.tags[indexPath.row])
-        self.dismiss(animated: true, completion: nil)
-        
-        
-        
-    }
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
@@ -75,21 +53,6 @@ class TagTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        print("きちゃった")
-    //        // Get the new view controller using segue.destination.
-    //        // Pass the selected object to the new view controller.
-    //        guard let identifier = segue.identifier else {
-    //            return
-    //        }
-    //        if identifier == "setTag" {
-    //            print("きたよ")
-    //            let tagVC = segue.destination as! ViewController
-    //            tagVC.selectTag = self.tags[(self.tableView.indexPathForSelectedRow?.row)!]
-    //        }
-    //    }
-    //
     
     /*
      // Override to support conditional editing of the table view.
@@ -125,6 +88,11 @@ class TagTableViewController: UITableViewController {
      return true
      }
      */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //let parentVC =  ViewController()
+        //parentVC.selectTag = self.tags[indexPath.row]
+    }
     
     /*
      // MARK: - Navigation
