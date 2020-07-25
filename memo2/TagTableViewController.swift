@@ -2,16 +2,16 @@
 //  TagTableViewController.swift
 //  memo2
 //
-//  Created by KazumaTokunaga on 2020/07/24.
+//  Created by Ryota Sato on 2020/07/25.
 //  Copyright © 2020 佐藤祐吾. All rights reserved.
 //
 
 import UIKit
 
 class TagTableViewController: UITableViewController {
-
-    var tags = ["買い物", "課題"]
     
+    var tags = ["課題","買い物"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,12 +36,22 @@ class TagTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tag", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tagTableViewCell", for: indexPath)
 
         // Configure the cell...
         cell.textLabel?.text = self.tags[indexPath.row]
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+           // セルの選択を解除
+           tableView.deselectRow(at: indexPath, animated: true)
+    
+           // 別の画面に遷移
+           self.dismiss(animated: true, completion: nil)
+        
+       }
     
 
     /*
