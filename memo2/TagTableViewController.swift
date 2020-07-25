@@ -8,9 +8,12 @@
 
 import UIKit
 
+var selectTag = "initial"
+
 class TagTableViewController: UITableViewController {
     
     var tags = ["課題","買い物"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +40,6 @@ class TagTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tagTableViewCell", for: indexPath)
-        
         // Configure the cell...
         cell.textLabel?.text = self.tags[indexPath.row]
         return cell
@@ -46,8 +48,7 @@ class TagTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            self.tags.remove(at: indexPath.row)    //ここに記述
-            
+            self.tags.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -90,8 +91,8 @@ class TagTableViewController: UITableViewController {
      */
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let parentVC =  ViewController()
-        //parentVC.selectTag = self.tags[indexPath.row]
+        selectTag = self.tags[indexPath.row]
+        self.dismiss(animated: true, completion: nil)
     }
     
     /*

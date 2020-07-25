@@ -54,7 +54,7 @@
                                 <rect key="frame" x="30" y="463" width="31" height="30"/>
                                 <state key="normal" title="タグ"/>
                                 <connections>
-                                    <segue destination="pZV-IU-Yqf" kind="presentation" identifier="setTag" id="eTw-dy-kMe"/>
+                                    <segue destination="pZV-IU-Yqf" kind="presentation" identifier="setTag" modalPresentationStyle="fullScreen" id="eTw-dy-kMe"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bBz-H5-FGo">
@@ -117,7 +117,7 @@
             <objects>
                 <tableViewController id="JwO-jU-Lgm" customClass="TagTableViewController" customModule="memo2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RZH-di-t5L">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -139,7 +139,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KoY-Ac-7Kq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613.0434782608697" y="129.91071428571428"/>
+            <point key="canvasLocation" x="1604" y="121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qGW-YS-U5N">
@@ -147,7 +147,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pZV-IU-Yqf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ScB-he-FjS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -157,7 +157,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRd-0H-of4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="702.89855072463774" y="129.91071428571428"/>
+            <point key="canvasLocation" x="780" y="121"/>
         </scene>
     </scenes>
 </document>
