@@ -33,8 +33,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            
             // Delete the row from the data source
             self.memoList.remove(at: indexPath.row)    //ここに記述
+            let defaults = UserDefaults.standard
+            defaults.set(memoList, forKey: "MEMO_LIST")
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
