@@ -51,21 +51,21 @@
                                 <rect key="frame" x="30" y="463" width="31" height="30"/>
                                 <state key="normal" title="タグ"/>
                                 <connections>
-                                    <segue destination="pZV-IU-Yqf" kind="presentation" id="eTw-dy-kMe"/>
+                                    <segue destination="pZV-IU-Yqf" kind="presentation" identifier="setTag" id="eTw-dy-kMe"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="default" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bBz-H5-FGo">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bBz-H5-FGo">
                                 <rect key="frame" x="71" y="461" width="107" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="default" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yxi-Vc-ZP2">
-                                <rect key="frame" x="299" y="461" width="85" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yxi-Vc-ZP2">
+                                <rect key="frame" x="351" y="461" width="33" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNW-83-Gts">
-                                <rect key="frame" x="212" y="463" width="77" height="30"/>
+                                <rect key="frame" x="264" y="463" width="77" height="30"/>
                                 <state key="normal" title="リマインダ"/>
                             </button>
                         </subviews>
@@ -95,11 +95,13 @@
                     <connections>
                         <outlet property="editMemoField" destination="YOh-RO-Dei" id="6Rt-rb-agg"/>
                         <outlet property="memoListView" destination="wZS-zg-xLj" id="gwp-vp-Rt2"/>
+                        <outlet property="reminderText" destination="Yxi-Vc-ZP2" id="tXF-PT-jIo"/>
+                        <outlet property="tagText" destination="bBz-H5-FGo" id="KKF-Sv-0JC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="129"/>
+            <point key="canvasLocation" x="-42" y="121"/>
         </scene>
         <!--タグを選んでね!-->
         <scene sceneID="jl6-VZ-4wv">

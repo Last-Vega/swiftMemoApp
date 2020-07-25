@@ -45,11 +45,16 @@ class TagTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+              
+        let tagVC =  ViewController()
+            tagVC.selectTag = self.tags[(self.tableView.indexPathForSelectedRow?.row)!]
+        
            // セルの選択を解除
            tableView.deselectRow(at: indexPath, animated: true)
     
            // 別の画面に遷移
            self.dismiss(animated: true, completion: nil)
+        
         
        }
     
@@ -64,6 +69,20 @@ class TagTableViewController: UITableViewController {
         }
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        print("きちゃった")
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//        guard let identifier = segue.identifier else {
+//            return
+//        }
+//        if identifier == "setTag" {
+//            print("きたよ")
+//            let tagVC = segue.destination as! ViewController
+//            tagVC.selectTag = self.tags[(self.tableView.indexPathForSelectedRow?.row)!]
+//        }
+//    }
+//
 
     /*
     // Override to support conditional editing of the table view.

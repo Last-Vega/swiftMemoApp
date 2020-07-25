@@ -11,13 +11,20 @@ private let unselectedRow = -1
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    var selectTag:String?
+    
     
     @IBOutlet weak var editMemoField: UITextField!
     @IBOutlet weak var memoListView: UITableView!
+    @IBOutlet weak var tagText: UITextField!
+    @IBOutlet weak var reminderText: UITextField!
     var memoList: [String] = []
     var editRow: Int = unselectedRow
     
+    
+    
     override func viewDidLoad() {
+         print("呼ばれたよ")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         memoListView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -28,8 +35,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (loadedMemoList as? [String] != nil) {
             memoList = loadedMemoList as! [String]
         }
+        if let tag = self.selectTag {
+                   
+                   self.tagText.text = tag
+            print(tag)
+        }
         
     }
+    
+   
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -98,5 +112,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         editRow = unselectedRow
         memoListView.reloadData()
     }
+    
+      
+        
+       
 }
 
