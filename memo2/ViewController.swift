@@ -11,7 +11,7 @@ private let unselectedRow = -1
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    var selectTag:String?
+    var selectTag = "abc"
     
     
     @IBOutlet weak var editMemoField: UITextField!
@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     override func viewDidLoad() {
-         print("呼ばれたよ")
+        print("呼ばれたよ")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         memoListView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -35,15 +35,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (loadedMemoList as? [String] != nil) {
             memoList = loadedMemoList as! [String]
         }
-        if let tag = self.selectTag {
-                   
-                   self.tagText.text = tag
-            print(tag)
-        }
-        
+        self.tagText.text = selectTag
     }
     
-   
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -113,8 +108,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         memoListView.reloadData()
     }
     
-      
+    func refresh(_ a:String){
+        print("called")
+        print(a)
         
-       
+//        if let tag = a {
+//            print(a)
+//            self.tagText.text = a
+//        }
+        
+//        if (a as? String != nil) {
+//            //print(a)
+//            //print(String(describing: type(of: self.tagText)))
+//            //self.tagText.text = a
+//        }
+        
+//        guard let tag = a else {
+//            return
+//
+//        }
+        
+        
+        
+    }
+    
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        super.viewWillAppear(animated)
+    //
+    //        if let presented = self.presentedViewController {
+    //            if type(of: presented) == TagTableViewController.self {
+    //                //PopupViewControllerから戻ってきたときはrefresh()
+    //                self.refresh()
+    //            }
+    //        }
+    //    }
+    
+    
+    
 }
 
