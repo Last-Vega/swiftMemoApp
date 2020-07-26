@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var reminderText: UITextField!
     @IBOutlet weak var label: UILabel!
     
+    let gloVar = GlobalVar.shared
     var memoList: [String] = []
     var editRow: Int = unselectedRow
     
@@ -33,14 +34,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (loadedMemoList as? [String] != nil) {
             memoList = loadedMemoList as! [String]
         }
-        self.tagText.text = selectTag
+        self.tagText.text = gloVar.selectTag
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //print("did appear")
-        self.tagText.text = selectTag
+        self.tagText.text = gloVar.selectTag
         presentingViewController?.endAppearanceTransition()
     }
     

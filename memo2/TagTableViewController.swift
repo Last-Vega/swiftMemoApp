@@ -8,10 +8,10 @@
 
 import UIKit
 
-var selectTag = "initial"
 
 class TagTableViewController: UITableViewController {
     
+    let gloVar = GlobalVar.shared
     var tags = ["課題","買い物"]
     
     
@@ -91,7 +91,7 @@ class TagTableViewController: UITableViewController {
      */
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectTag = self.tags[indexPath.row]
+        gloVar.selectTag = self.tags[indexPath.row]
         self.dismiss(animated: true, completion: nil)
     }
     
