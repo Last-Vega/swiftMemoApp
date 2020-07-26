@@ -16,6 +16,7 @@
 		8217BE1A24CA665B00D353E1 /* memo2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8217BE1924CA665B00D353E1 /* memo2Tests.swift */; };
 		8217BE2524CA665B00D353E1 /* memo2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8217BE2424CA665B00D353E1 /* memo2UITests.swift */; };
 		A303198F24CBFCF500348013 /* TagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A303198E24CBFCF500348013 /* TagTableViewController.swift */; };
+		A303199124CD3DE900348013 /* TagCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A303199024CD3DE900348013 /* TagCreateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8217BE2424CA665B00D353E1 /* memo2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memo2UITests.swift; sourceTree = "<group>"; };
 		8217BE2624CA665B00D353E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A303198E24CBFCF500348013 /* TagTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewController.swift; sourceTree = "<group>"; };
+		A303199024CD3DE900348013 /* TagCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCreateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				8217BE0424CA665A00D353E1 /* SceneDelegate.swift */,
 				8217BE0624CA665A00D353E1 /* ViewController.swift */,
 				8217BE0824CA665A00D353E1 /* Main.storyboard */,
+				A303199024CD3DE900348013 /* TagCreateViewController.swift */,
 				8217BE0B24CA665A00D353E1 /* Assets.xcassets */,
 				8217BE0D24CA665A00D353E1 /* LaunchScreen.storyboard */,
 				8217BE1024CA665A00D353E1 /* Info.plist */,
@@ -265,6 +268,7 @@
 				8217BE0724CA665A00D353E1 /* ViewController.swift in Sources */,
 				8217BE0324CA665A00D353E1 /* AppDelegate.swift in Sources */,
 				A303198F24CBFCF500348013 /* TagTableViewController.swift in Sources */,
+				A303199124CD3DE900348013 /* TagCreateViewController.swift in Sources */,
 				8217BE0524CA665A00D353E1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

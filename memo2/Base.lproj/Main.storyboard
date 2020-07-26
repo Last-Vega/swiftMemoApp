@@ -135,11 +135,61 @@
                             <outlet property="delegate" destination="JwO-jU-Lgm" id="oUW-DM-ki0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="タグを選んでね!" id="SEI-Dv-czo"/>
+                    <navigationItem key="navigationItem" title="タグを選んでね!" id="SEI-Dv-czo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sxP-Xv-ZpO">
+                            <connections>
+                                <segue destination="lDp-9e-tlz" kind="presentation" identifier="createTag" id="GJD-Yo-EDg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KoY-Ac-7Kq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1604" y="121"/>
+        </scene>
+        <!--タグ作成画面-->
+        <scene sceneID="btu-HJ-mfq">
+            <objects>
+                <viewController id="uUt-Bi-4S0" customClass="TagCreateViewController" customModule="memo2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xWe-pf-r5b">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="タグ名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTz-RK-YjP">
+                                <rect key="frame" x="34" y="123" width="52" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O5T-Uh-F1k">
+                                <rect key="frame" x="148" y="116" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJt-ni-tEX">
+                                <rect key="frame" x="330" y="118" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="確定"/>
+                                <connections>
+                                    <action selector="tagCreateButton:" destination="uUt-Bi-4S0" eventType="touchUpInside" id="Ic3-eC-FAh"/>
+                                    <segue destination="Mxt-W8-d1p" kind="unwind" unwindAction="tagCreateButtonWithSegue:" id="JkH-gE-vaL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3Hv-QV-lEq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="タグ作成画面" id="X6g-Or-jis"/>
+                    <connections>
+                        <outlet property="tagName" destination="O5T-Uh-F1k" id="MLt-S6-aU5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KIa-vr-X6O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Mxt-W8-d1p" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3181" y="121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qGW-YS-U5N">
@@ -158,6 +208,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRd-0H-of4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="780" y="121"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jtW-x8-huH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lDp-9e-tlz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CJO-cI-l88">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uUt-Bi-4S0" kind="relationship" relationship="rootViewController" id="cFu-tt-U9m"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iE7-TI-Zmq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2411.594202898551" y="120.53571428571428"/>
         </scene>
     </scenes>
 </document>
