@@ -138,7 +138,7 @@
                     <navigationItem key="navigationItem" title="タグを選んでね!" id="SEI-Dv-czo">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sxP-Xv-ZpO">
                             <connections>
-                                <segue destination="lDp-9e-tlz" kind="presentation" identifier="createTag" id="GJD-Yo-EDg"/>
+                                <segue destination="uUt-Bi-4S0" kind="show" identifier="createTag" id="eiX-wj-Vwe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -147,12 +147,12 @@
             </objects>
             <point key="canvasLocation" x="1604" y="121"/>
         </scene>
-        <!--タグ作成画面-->
+        <!--タグを作ってね！-->
         <scene sceneID="btu-HJ-mfq">
             <objects>
                 <viewController id="uUt-Bi-4S0" customClass="TagCreateViewController" customModule="memo2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xWe-pf-r5b">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="タグ名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTz-RK-YjP">
@@ -168,19 +168,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6c-Sj-PBZ">
+                                <rect key="frame" x="312" y="123" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="tapButton:" destination="uUt-Bi-4S0" eventType="touchUpInside" id="bf3-zZ-sW6"/>
+                                    <segue destination="Mxt-W8-d1p" kind="unwind" unwindAction="unwindToTagTableWithSender:" id="h37-CF-Eoi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="3Hv-QV-lEq"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="タグ作成画面" id="X6g-Or-jis">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0Ry-OD-sf7">
-                            <connections>
-                                <action selector="exitlove:" destination="Mxt-W8-d1p" id="00H-LK-kY0"/>
-                                <segue destination="Mxt-W8-d1p" kind="unwind" unwindAction="unwindToTagTableWithSender:" id="a7s-ir-L1J"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="タグを作ってね！" id="X6g-Or-jis"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tagName" destination="O5T-Uh-F1k" id="NMS-Xh-18j"/>
@@ -189,7 +191,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIa-vr-X6O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Mxt-W8-d1p" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3181" y="121"/>
+            <point key="canvasLocation" x="2683" y="121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qGW-YS-U5N">
@@ -208,24 +210,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRd-0H-of4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="780" y="121"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="jtW-x8-huH">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lDp-9e-tlz" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CJO-cI-l88">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="uUt-Bi-4S0" kind="relationship" relationship="rootViewController" id="cFu-tt-U9m"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iE7-TI-Zmq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2411.594202898551" y="120.53571428571428"/>
         </scene>
     </scenes>
 </document>

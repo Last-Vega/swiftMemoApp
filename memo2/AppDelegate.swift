@@ -37,4 +37,5 @@ class GlobalVar {
     static let shared = GlobalVar()
 
     var selectTag = "init"
+    var str = ""
 }
