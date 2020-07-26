@@ -26,6 +26,12 @@ class TagTableViewController: UITableViewController {
     }
     
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("did appear")
+        presentingViewController?.endAppearanceTransition()
+    }
+    
     @IBAction func unwindToTagTable(sender: UIStoryboardSegue) {
         print("unwind")
     }
