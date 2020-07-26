@@ -105,13 +105,13 @@
 			children = (
 				8217BE0224CA665A00D353E1 /* AppDelegate.swift */,
 				8217BE0424CA665A00D353E1 /* SceneDelegate.swift */,
-				8217BE0624CA665A00D353E1 /* ViewController.swift */,
 				8217BE0824CA665A00D353E1 /* Main.storyboard */,
-				A303199024CD3DE900348013 /* TagCreateViewController.swift */,
 				8217BE0B24CA665A00D353E1 /* Assets.xcassets */,
 				8217BE0D24CA665A00D353E1 /* LaunchScreen.storyboard */,
 				8217BE1024CA665A00D353E1 /* Info.plist */,
+				8217BE0624CA665A00D353E1 /* ViewController.swift */,
 				A303198E24CBFCF500348013 /* TagTableViewController.swift */,
+				A303199024CD3DE900348013 /* TagCreateViewController.swift */,
 			);
 			path = memo2;
 			sourceTree = "<group>";

@@ -168,22 +168,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJt-ni-tEX">
-                                <rect key="frame" x="330" y="118" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="確定"/>
-                                <connections>
-                                    <action selector="tagCreateButton:" destination="uUt-Bi-4S0" eventType="touchUpInside" id="Ic3-eC-FAh"/>
-                                    <segue destination="Mxt-W8-d1p" kind="unwind" unwindAction="tagCreateButtonWithSegue:" id="JkH-gE-vaL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="3Hv-QV-lEq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="タグ作成画面" id="X6g-Or-jis"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="タグ作成画面" id="X6g-Or-jis">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0Ry-OD-sf7">
+                            <connections>
+                                <action selector="exitlove:" destination="Mxt-W8-d1p" id="00H-LK-kY0"/>
+                                <segue destination="Mxt-W8-d1p" kind="unwind" unwindAction="unwindToTagTableWithSender:" id="a7s-ir-L1J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tagName" destination="O5T-Uh-F1k" id="MLt-S6-aU5"/>
+                        <outlet property="tagName" destination="O5T-Uh-F1k" id="NMS-Xh-18j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIa-vr-X6O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
