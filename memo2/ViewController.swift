@@ -153,25 +153,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      }
     
     
+    
     @IBAction func recordButtonTapped(_ sender: Any) {
-        print("Tapped")
-        if isRecording {
-            print("stop")
-//          UIView.animate(withDuration: 0.2) {
-//            self.showStartButton()
-//          }
+        print("stop")
+//        if isRecording {
+//            print("stop")
+////          UIView.animate(withDuration: 0.2) {
+////            self.showStartButton()
+////          }
+//          stopLiveTranscription()
+//        } else {
+//            print("start")
+////          UIView.animate(withDuration: 0.2) {
+////            self.showStopButton()
+////          }
           stopLiveTranscription()
-        } else {
-            print("start")
-//          UIView.animate(withDuration: 0.2) {
-//            self.showStopButton()
-//          }
-          try! startLiveTranscription()
-        }
-        isRecording = !isRecording
+//        }
+//        isRecording = !isRecording
     }
     
     
+    @IBAction func recordButtonStart(_ sender: Any) {
+        print("start")
+        try! startLiveTranscription()
+    }
     
     
     

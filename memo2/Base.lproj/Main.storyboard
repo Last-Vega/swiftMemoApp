@@ -72,6 +72,7 @@
                                 <rect key="frame" x="5" y="111" width="62" height="30"/>
                                 <state key="normal" title="音声入力"/>
                                 <connections>
+                                    <action selector="recordButtonStart:" destination="BYZ-38-t0r" eventType="touchDown" id="Plh-gG-OxA"/>
                                     <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ncE-BW-gEu"/>
                                 </connections>
                             </button>
