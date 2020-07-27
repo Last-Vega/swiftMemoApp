@@ -8,16 +8,26 @@
 //
 
 import UIKit
+import Speech
+import AVFoundation
 
 private let unselectedRow = -1
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+    
     
     @IBOutlet weak var editMemoField: UITextField!
     @IBOutlet weak var memoListView: UITableView!
     @IBOutlet weak var tagText: UITextField!
     @IBOutlet weak var reminderText: UITextField!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var recordButton: UIButton!
+    
+    var isRecording = false
+    let recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ja_JP"))!
+    var audioEngine: AVAudioEngine!
+    var recognitionReq: SFSpeechAudioBufferRecognitionRequest?
+    var recognitionTask: SFSpeechRecognitionTask?
     
     var selectTag = "なし"
     var memoList: [String] = []
@@ -27,6 +37,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        audioEngine = AVAudioEngine()
+       
+        
         memoListView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         editMemoField.becomeFirstResponder()
         
@@ -44,7 +57,89 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //print("did appear")
         self.tagText.text = self.selectTag
         presentingViewController?.endAppearanceTransition()
+        
+//        initRoundCorners()
+//        showStartButton()
+
+        SFSpeechRecognizer.requestAuthorization { (authStatus) in
+            DispatchQueue.main.async {
+                if authStatus != SFSpeechRecognizerAuthorizationStatus.authorized {
+                self.recordButton.isEnabled = false
+                self.recordButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+                }
+            }
+        }
     }
+    
+    
+    
+    func stopLiveTranscription() {
+       audioEngine.stop()
+       audioEngine.inputNode.removeTap(onBus: 0)
+       recognitionReq?.endAudio()
+     }
+    
+    func startLiveTranscription() throws {
+
+       // もし前回の音声認識タスクが実行中ならキャンセル
+       if let recognitionTask = self.recognitionTask {
+         recognitionTask.cancel()
+         self.recognitionTask = nil
+       }
+       editMemoField.text = ""
+
+       // 音声認識リクエストの作成
+       recognitionReq = SFSpeechAudioBufferRecognitionRequest()
+       guard let recognitionReq = recognitionReq else {
+         return
+       }
+       recognitionReq.shouldReportPartialResults = true
+
+       // オーディオセッションの設定
+       let audioSession = AVAudioSession.sharedInstance()
+       try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
+       try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+       let inputNode = audioEngine.inputNode
+
+       // マイク入力の設定
+       let recordingFormat = inputNode.outputFormat(forBus: 0)
+       inputNode.installTap(onBus: 0, bufferSize: 2048, format: recordingFormat) { (buffer, time) in
+         recognitionReq.append(buffer)
+       }
+       audioEngine.prepare()
+       try audioEngine.start()
+
+       recognitionTask = recognizer.recognitionTask(with: recognitionReq, resultHandler: { (result, error) in
+         if let error = error {
+           print("\(error)")
+         } else {
+           DispatchQueue.main.async {
+             self.editMemoField.text = result?.bestTranscription.formattedString
+           }
+         }
+       })
+     }
+    
+    
+    @IBAction func recordButtonTapped(_ sender: Any) {
+        print("Tapped")
+        if isRecording {
+            print("stop")
+//          UIView.animate(withDuration: 0.2) {
+//            self.showStartButton()
+//          }
+          stopLiveTranscription()
+        } else {
+            print("start")
+//          UIView.animate(withDuration: 0.2) {
+//            self.showStopButton()
+//          }
+          try! startLiveTranscription()
+        }
+        isRecording = !isRecording
+    }
+    
+    
     
     
     

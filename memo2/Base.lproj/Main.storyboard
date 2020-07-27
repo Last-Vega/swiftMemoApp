@@ -77,6 +77,14 @@
                                 <rect key="frame" x="208.5" y="463" width="77" height="30"/>
                                 <state key="normal" title="リマインダ"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNN-pn-ltt">
+                                <rect key="frame" x="5" y="111" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="音声入力"/>
+                                <connections>
+                                    <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ncE-BW-gEu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -104,6 +112,7 @@
                     <connections>
                         <outlet property="editMemoField" destination="YOh-RO-Dei" id="6Rt-rb-agg"/>
                         <outlet property="memoListView" destination="wZS-zg-xLj" id="gwp-vp-Rt2"/>
+                        <outlet property="recordButton" destination="xNN-pn-ltt" id="IxH-43-NIw"/>
                         <outlet property="reminderText" destination="Yxi-Vc-ZP2" id="tXF-PT-jIo"/>
                         <outlet property="tagText" destination="bBz-H5-FGo" id="KKF-Sv-0JC"/>
                     </connections>
@@ -165,12 +174,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O5T-Uh-F1k">
-                                <rect key="frame" x="127" y="116" width="160" height="34"/>
+                                <rect key="frame" x="127" y="116" width="160" height="34.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyD-Ko-mgR">
-                                <rect key="frame" x="317" y="118" width="31" height="30"/>
+                                <rect key="frame" x="317" y="118" width="31" height="30.5"/>
                                 <state key="normal" title="作成"/>
                                 <connections>
                                     <action selector="tapCreateButton:" destination="uUt-Bi-4S0" eventType="touchUpInside" id="pA5-3I-pcu"/>
