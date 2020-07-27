@@ -94,6 +94,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBAction func tapSubmitButton(_ sender: Any) {
+        //local push
         guard let remindDate = self.localPushDate else{
             applyMemo()
 //            print("applyWithoutRemind")
@@ -132,13 +133,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        applyMemo()
+        tapSubmitButton(UIButton.self)
+//        applyMemo()
         return true
     }
     
     
     func applyMemo() {
-        if editMemoField.text == nil {
+        if editMemoField.text == "" {
             return
         }
         
