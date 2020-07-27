@@ -28,7 +28,7 @@ class TagCreateViewController: UIViewController, UITextFieldDelegate {
         //print("return key")
         let preNC = self.navigationController
         let preVC = preNC!.viewControllers[preNC!.viewControllers.count - 2] as! TagTableViewController
-        preVC.tmp = "change"
+        preVC.addTag = self.tagName.text ?? ""
 
         self.navigationController?.popViewController(animated: true)
         return true
@@ -40,7 +40,6 @@ class TagCreateViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        print(segue)
         print("prepare")
     }
 

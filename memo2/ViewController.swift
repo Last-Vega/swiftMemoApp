@@ -55,7 +55,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.memoList.remove(at: indexPath.row)
             let defaults = UserDefaults.standard
             defaults.set(memoList, forKey: "MEMO_LIST")
-            
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
