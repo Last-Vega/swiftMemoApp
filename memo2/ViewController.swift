@@ -94,17 +94,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBAction func tapSubmitButton(_ sender: Any) {
-        print("ローカルプッシュ通知1件セット完了")
-        setNotification(date: self.localPushDate! as Date, memoField: editMemoField.text!)
-        print("setNotification")
+        guard let remindDate = self.localPushDate else{
+            applyMemo()
+//            print("applyWithoutRemind")
+            return
+        }
+        setNotification(date: remindDate as Date, memoField: editMemoField.text!)
         
         applyMemo()
-        //ブッシュ通知
-//        if let self.pushDate = self.localPushDate{
-//            print("ローカルプッシュ通知1件セット完了")
-//            setNotification(date: pushDate)
-//        }
-
+//        print("applyMemo")
 
     }
     
@@ -164,8 +162,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // 日付のフォーマット
         let formatter = DateFormatter()
         self.localPushDate = datePicker.date
-        print("localPushDate")
-        print(self.localPushDate)
+//        print("localPushDate")
+//        print(self.localPushDate)
         
         //"yyyy年MM月dd日"を"yyyy/MM/dd"したりして出力の仕方を好きに変更できるよ
         formatter.dateFormat = "MM/dd/HH:mm"
