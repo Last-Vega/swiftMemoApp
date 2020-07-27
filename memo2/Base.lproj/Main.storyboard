@@ -66,37 +66,39 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yxi-Vc-ZP2">
-                                <rect key="frame" x="295.5" y="461" width="80" height="34"/>
+                                <rect key="frame" x="245.5" y="461" width="130" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="VXW-EY-oqH"/>
+                                    <constraint firstAttribute="width" constant="130" id="D1e-cx-ZZ9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNW-83-Gts">
-                                <rect key="frame" x="208.5" y="463" width="77" height="30"/>
-                                <state key="normal" title="リマインダ"/>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通知設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vk-iY-lSv">
+                                <rect key="frame" x="183.5" y="470" width="62" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="eU3-fd-2rx" firstAttribute="leading" secondItem="YOh-RO-Dei" secondAttribute="trailing" constant="20" id="6WH-hI-ezp"/>
                             <constraint firstItem="wZS-zg-xLj" firstAttribute="top" secondItem="YOh-RO-Dei" secondAttribute="bottom" constant="25" id="ArM-M3-qpj"/>
-                            <constraint firstItem="Yxi-Vc-ZP2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="Br7-lM-PcM"/>
                             <constraint firstItem="jrn-Sg-pFo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="D1g-Bo-WiP"/>
                             <constraint firstItem="bBz-H5-FGo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="E5p-uj-GVG"/>
                             <constraint firstItem="YOh-RO-Dei" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="IGY-Ll-92U"/>
-                            <constraint firstItem="BNW-83-Gts" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="40" id="MIx-Dc-JkR"/>
+                            <constraint firstItem="Yxi-Vc-ZP2" firstAttribute="leading" secondItem="0Vk-iY-lSv" secondAttribute="trailing" id="OBu-xg-Ebu"/>
                             <constraint firstItem="wZS-zg-xLj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PIq-hD-0Q3"/>
+                            <constraint firstItem="0Vk-iY-lSv" firstAttribute="top" secondItem="wZS-zg-xLj" secondAttribute="bottom" constant="39" id="PrK-QW-CDW"/>
                             <constraint firstItem="jrn-Sg-pFo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="RwQ-8L-9xm"/>
                             <constraint firstItem="bBz-H5-FGo" firstAttribute="leading" secondItem="jrn-Sg-pFo" secondAttribute="trailing" constant="10" id="Sr7-M9-Fqp"/>
                             <constraint firstItem="YOh-RO-Dei" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VX9-t0-b98"/>
                             <constraint firstItem="eU3-fd-2rx" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="gP2-jb-VHP"/>
                             <constraint firstItem="yYS-pt-1PL" firstAttribute="top" secondItem="eU3-fd-2rx" secondAttribute="top" id="hwn-H2-QvP"/>
-                            <constraint firstItem="Yxi-Vc-ZP2" firstAttribute="leading" secondItem="BNW-83-Gts" secondAttribute="trailing" constant="10" id="iF0-SY-9d6"/>
                             <constraint firstItem="yYS-pt-1PL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="k2z-JU-5fd"/>
-                            <constraint firstItem="BNW-83-Gts" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="nai-Zs-Ua1"/>
                             <constraint firstItem="bBz-H5-FGo" firstAttribute="top" secondItem="wZS-zg-xLj" secondAttribute="bottom" constant="30" id="sjw-yL-Had"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yxi-Vc-ZP2" secondAttribute="trailing" constant="38.5" id="ujO-KO-IKP"/>
+                            <constraint firstItem="Yxi-Vc-ZP2" firstAttribute="top" secondItem="wZS-zg-xLj" secondAttribute="bottom" constant="30" id="weh-yt-icS"/>
                             <constraint firstItem="yYS-pt-1PL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="yd4-lT-Rka"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
