@@ -8,6 +8,7 @@
 //
 
 import UIKit
+
 private let unselectedRow = -1
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
@@ -18,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var reminderText: UITextField!
     @IBOutlet weak var label: UILabel!
     
-    let gloVar = GlobalVar.shared
+    var selectTag = "なし"
     var memoList: [String] = []
     var editRow: Int = unselectedRow
     
@@ -34,14 +35,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (loadedMemoList as? [String] != nil) {
             memoList = loadedMemoList as! [String]
         }
-        self.tagText.text = gloVar.selectTag
+        self.tagText.text = self.selectTag
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //print("did appear")
-        self.tagText.text = gloVar.selectTag
+        self.tagText.text = self.selectTag
         presentingViewController?.endAppearanceTransition()
     }
     

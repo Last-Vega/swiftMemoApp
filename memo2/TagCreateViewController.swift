@@ -16,7 +16,6 @@ class TagCreateViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("load")
 
         // Do any additional setup after loading the view.
         tagName.delegate = self
@@ -26,9 +25,12 @@ class TagCreateViewController: UIViewController, UITextFieldDelegate {
 
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("return key")
+        //print("return key")
+        let preNC = self.navigationController
+        let preVC = preNC!.viewControllers[preNC!.viewControllers.count - 2] as! TagTableViewController
+        preVC.tmp = "change"
+
         self.navigationController?.popViewController(animated: true)
-        
         return true
     }
 

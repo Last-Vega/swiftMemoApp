@@ -11,8 +11,8 @@ import UIKit
 
 class TagTableViewController: UITableViewController {
     
-    let gloVar = GlobalVar.shared
     var tags = ["課題","買い物"]
+    var tmp = "init"
     
     
     override func viewDidLoad() {
@@ -28,12 +28,9 @@ class TagTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("did appear")
+        //print("did appear")
+        print(tmp)
         presentingViewController?.endAppearanceTransition()
-    }
-    
-    @IBAction func unwindToTagTable(sender: UIStoryboardSegue) {
-        print("unwind")
     }
     
     // MARK: - Table view data source
@@ -101,8 +98,10 @@ class TagTableViewController: UITableViewController {
      }
      */
     
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        gloVar.selectTag = self.tags[indexPath.row]
+        let preVC = self.presentingViewController as! ViewController
+        preVC.selectTag = self.tags[indexPath.row]  //ここで値渡し
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -31,11 +31,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 }
-
-class GlobalVar {
-    private init() {}
-    static let shared = GlobalVar()
-
-    var selectTag = "init"
-    var str = ""
-}

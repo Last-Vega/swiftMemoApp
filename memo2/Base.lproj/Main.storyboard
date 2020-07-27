@@ -193,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="2683" y="121"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--TagNavigation-->
         <scene sceneID="qGW-YS-U5N">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pZV-IU-Yqf" sceneMemberID="viewController">
+                <navigationController title="TagNavigation" automaticallyAdjustsScrollViewInsets="NO" id="pZV-IU-Yqf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ScB-he-FjS">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
