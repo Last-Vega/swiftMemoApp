@@ -171,6 +171,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyD-Ko-mgR">
+                                <rect key="frame" x="340" y="123" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="作成"/>
+                                <connections>
+                                    <action selector="tapCreateButton:" destination="uUt-Bi-4S0" eventType="touchUpInside" id="pA5-3I-pcu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="3Hv-QV-lEq"/>
@@ -179,6 +187,7 @@
                     <navigationItem key="navigationItem" title="タグを作ってね！" id="X6g-Or-jis"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="createButton" destination="gyD-Ko-mgR" id="ymB-Qz-S2f"/>
                         <outlet property="tagName" destination="O5T-Uh-F1k" id="NMS-Xh-18j"/>
                     </connections>
                 </viewController>

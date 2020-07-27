@@ -13,7 +13,8 @@ class TagCreateViewController: UIViewController, UITextFieldDelegate {
 
 
     @IBOutlet weak var tagName: UITextField!
-
+    @IBOutlet weak var createButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +23,10 @@ class TagCreateViewController: UIViewController, UITextFieldDelegate {
         tagName.becomeFirstResponder()
     }
     
-
+    @IBAction func tapCreateButton(_ sender: Any) {
+        let _ = textFieldShouldReturn(tagName)
+    }
+    
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //print("return key")
