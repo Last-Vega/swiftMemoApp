@@ -8,21 +8,57 @@
 
 import UIKit
 
+private let unselectedRow = -1
 
 class TagTableViewController: UITableViewController {
     
-    let gloVar = GlobalVar.shared
-    var tags = ["課題","買い物"]
+    var tagList = ["課題","買い物"]
+    var addTag = ""
+    var editRow: Int = unselectedRow
     
+    @IBOutlet var tagListView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let defaults = UserDefaults.standard
+        let loadedMemoList = defaults.object(forKey: "TAG_LIST")
+        if (loadedMemoList as? [String] != nil) {
+            tagList = loadedMemoList as! [String]
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //print("did appear")
+        applyTag()
+        presentingViewController?.endAppearanceTransition()
+    }
+    
+    func applyTag() {
+        if addTag == "" {
+            return
+        }
+        
+        if editRow == unselectedRow {
+            tagList.append(addTag)
+        } else {
+            tagList[editRow] = addTag
+        }
+        
+        let defaults = UserDefaults.standard
+        defaults.set(tagList, forKey: "TAG_LIST")
+        
+        addTag = ""
+        editRow = unselectedRow
+        tagListView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -34,21 +70,23 @@ class TagTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.tags.count
+        return self.tagList.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tagTableViewCell", for: indexPath)
         // Configure the cell...
-        cell.textLabel?.text = self.tags[indexPath.row]
+        cell.textLabel?.text = self.tagList[indexPath.row]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            self.tags.remove(at: indexPath.row)
+            self.tagList.remove(at: indexPath.row)
+            let defaults = UserDefaults.standard
+            defaults.set(tagList, forKey: "TAG_LIST")
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -90,8 +128,10 @@ class TagTableViewController: UITableViewController {
      }
      */
     
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        gloVar.selectTag = self.tags[indexPath.row]
+        let preVC = self.presentingViewController as! ViewController
+        preVC.selectTag = self.tagList[indexPath.row]  //ここで値渡し
         self.dismiss(animated: true, completion: nil)
     }
     
