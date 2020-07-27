@@ -8,10 +8,20 @@
 //
 
 import UIKit
+
 import Speech
 import AVFoundation
 
+import UserNotifications
+
+
 private let unselectedRow = -1
+//引数で指定した日付との差分の秒数を返すextension
+extension Date {
+    func seconds(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
+    }
+}
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -32,6 +42,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var selectTag = "なし"
     var memoList: [String] = []
     var editRow: Int = unselectedRow
+    var datePicker: UIDatePicker = UIDatePicker()
+    var localPushDate: Date?
     
     
     override func viewDidLoad() {
@@ -48,7 +60,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (loadedMemoList as? [String] != nil) {
             memoList = loadedMemoList as! [String]
         }
+
         self.tagText.text = self.selectTag
+
+        
+        
+        // ピッカー設定
+        datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
+        datePicker.timeZone = NSTimeZone.local
+        datePicker.locale = Locale.current
+        reminderText.inputView = datePicker
+
+        // 決定バーの生成
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        toolbar.setItems([spacelItem, doneItem], animated: true)
+
+        // インプットビュー設定(紐づいているUITextfieldへ代入)
+        reminderText.inputView = datePicker
+        reminderText.inputAccessoryView = toolbar
+
     }
     
     
@@ -164,7 +196,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBAction func tapSubmitButton(_ sender: Any) {
+        //local push
+        guard let remindDate = self.localPushDate else{
+            applyMemo()
+//            print("applyWithoutRemind")
+            return
+        }
+        setNotification(date: remindDate as Date, memoField: editMemoField.text!)
+        
         applyMemo()
+//        print("applyMemo")
+
     }
     
     
@@ -193,13 +235,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        applyMemo()
+        tapSubmitButton(UIButton.self)
+//        applyMemo()
         return true
     }
     
     
     func applyMemo() {
-        if editMemoField.text == nil {
+        if editMemoField.text == "" {
             return
         }
         
@@ -211,10 +254,55 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let defaults = UserDefaults.standard
         defaults.set(memoList, forKey: "MEMO_LIST")
-        
         editMemoField.text = ""
         editRow = unselectedRow
         memoListView.reloadData()
     }
+    
+    // UIDatePickerのDoneを押したら日時設定
+    @objc func done() {
+        reminderText.endEditing(true)
+
+        // 日付のフォーマット
+        let formatter = DateFormatter()
+        self.localPushDate = datePicker.date
+//        print("localPushDate")
+//        print(self.localPushDate)
+        
+        //"yyyy年MM月dd日"を"yyyy/MM/dd"したりして出力の仕方を好きに変更できるよ
+        formatter.dateFormat = "MM/dd/HH:mm"
+
+        //(from: datePicker.date))を指定してあげることで
+        //datePickerで指定した日付が表示される
+        reminderText.text = "\(formatter.string(from: datePicker.date))"
+
+    }
+    
+    func setNotification(date: Date, memoField: String) {
+        //通知日時の設定
+        var trigger: UNNotificationTrigger
+        //noticficationtimeにdatepickerで取得した値をset
+        let notificationTime = Calendar.current.dateComponents(in: TimeZone.current, from: date)
+        //現在時刻の取得
+        let now = Date()
+        //変数setDateに取得日時をDatecomponens型で代入
+        let setDate = DateComponents(calendar: .current, year: notificationTime.year, month: notificationTime.month, day: notificationTime.day, hour: notificationTime.hour, minute: notificationTime.minute,second: notificationTime.second).date!
+        //変数secondsに現在時刻と通知日時の差分の秒数を代入
+        let seconds = setDate.seconds(from: now)
+        //triggerに現在時刻から〇〇秒後の通知実行時間をset
+        trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds), repeats: false)
+        //通知内容の設定
+        let content = UNMutableNotificationContent()
+        content.title = "title"
+        content.body = memoField
+        content.sound = .default
+        //ユニークIDの設定
+        let identifier = NSUUID().uuidString
+        //登録用リクエストの設定
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        //通知をセット
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+
     
 }
