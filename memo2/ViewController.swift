@@ -235,33 +235,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         editRow = indexPath.row
         editMemoField.text = memoList[editRow]["contents"]
+        guard let idx = memoList[editRow]["tag"]!.lastIndex(of:"$") else{
+            return
+        }
+        
+        self.tagText.text = String(memoList[editRow]["tag"]![..<idx])
     }
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 //        tapSubmitButton(UIButton.self)
         //local push
-        guard let remindDate = self.localPushDate else{
-            applyMemo()
-            //            print("applyWithoutRemind")
-            return true
-        }
-        let timeNow = Date()
-        let modifiedDate = Calendar.current.date(byAdding: .minute, value: 2, to: timeNow)!
-        
-        if remindDate < timeNow {
-            //過去を指定してしまった時の処理
-            //アラート表示＋２分後にリマインドセット
-            alert(title: "リマインダが過去に設定されています",
-                  message: "現在時刻の２分後にセットしました")
-            setNotification(date: modifiedDate as Date, memoField: editMemoField.text!)
-            applyMemo()
-            print("現在時刻から２分セット後でセット")
-        } else {
-            setNotification(date: remindDate as Date, memoField: editMemoField.text!)
-            applyMemo()
-            print("リマインド時刻でセット")
-        }
+        applyMemo()
         //        applyMemo()
         return true
     }
@@ -272,11 +257,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return
         }
         
-        if editRow == unselectedRow {
-            memoList.insert(["contents": editMemoField.text!, "tag": selectTag], at: 0)
+//      リマインダ
+        var settingTime = ""
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .short
+        dateFormat.timeStyle = .short
+        dateFormat.locale = Locale(identifier: "ja_JP")
+        
+        if let remindDate = self.localPushDate {
+            let timeNow = Date()
+            let modifiedDate = Calendar.current.date(byAdding: .minute, value: 2, to: timeNow)!
+            
+            if remindDate < timeNow {
+                //過去を指定してしまった時の処理
+                //アラート表示＋２分後にリマインドセット
+                alert(title: "リマインダが過去に設定されています",
+                      message: "現在時刻の２分後にセットしました")
+                setNotification(date: modifiedDate as Date, memoField: editMemoField.text!)
+                settingTime = dateFormat.string(from: modifiedDate as Date)
+                print("現在時刻から２分セット後でセット")
+            } else {
+                setNotification(date: remindDate as Date, memoField: editMemoField.text!)
+                settingTime = dateFormat.string(from: remindDate as Date)
+                print("リマインド時刻でセット")
+            }
+            print(settingTime)
         } else {
-            memoList[editRow] = ["contents": editMemoField.text!, "tag": memoList[editRow]["tag"]!]
+            print("applyWithoutRemind")
         }
+        
+        if editRow == unselectedRow {
+            memoList.insert(["contents": editMemoField.text!, "tag": selectTag + "$\t" + settingTime], at: 0)
+        } else {
+            memoList[editRow] = ["contents": editMemoField.text!, "tag": selectTag + "$\t" + settingTime]
+        }
+
         
         let defaults = UserDefaults.standard
         defaults.set(memoList, forKey: "MEMO_LIST")
