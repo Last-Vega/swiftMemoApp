@@ -33,7 +33,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     
-    var isRecording = false
     let recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ja_JP"))!
     var audioEngine: AVAudioEngine!
     var recognitionReq: SFSpeechAudioBufferRecognitionRequest?
@@ -153,25 +152,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      }
     
     
+    
     @IBAction func recordButtonTapped(_ sender: Any) {
-        print("Tapped")
-        if isRecording {
-            print("stop")
-//          UIView.animate(withDuration: 0.2) {
-//            self.showStartButton()
-//          }
+//        print("stop")
+
           stopLiveTranscription()
-        } else {
-            print("start")
-//          UIView.animate(withDuration: 0.2) {
-//            self.showStopButton()
-//          }
-          try! startLiveTranscription()
-        }
-        isRecording = !isRecording
     }
     
     
+    @IBAction func recordButtonStart(_ sender: Any) {
+//        print("start")
+        try! startLiveTranscription()
+    }
     
     
     
