@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var recognitionReq: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
     
-    var selectTag = "なし"
+    var selectTag = ""
     var memoList = [
         ["contents": "内容", "tag": "タグ"]
     ]

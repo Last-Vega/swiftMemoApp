@@ -195,6 +195,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="タグを選んでね!" id="SEI-Dv-czo">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="EOK-m8-NEi">
+                            <connections>
+                                <action selector="tapCancel:" destination="JwO-jU-Lgm" id="8ma-n2-FQo"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sxP-Xv-ZpO">
                             <connections>
                                 <segue destination="uUt-Bi-4S0" kind="show" identifier="createTag" id="eiX-wj-Vwe"/>
