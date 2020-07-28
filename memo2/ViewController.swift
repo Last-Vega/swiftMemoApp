@@ -45,6 +45,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var localPushDate: Date?
     
     
+    
+    @IBAction func remindResetButton(_ sender: UIButton) {
+        self.localPushDate = nil
+        reminderText.text = ""
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
