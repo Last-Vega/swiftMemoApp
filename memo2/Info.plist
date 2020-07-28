@@ -64,5 +64,7 @@
 	<string>This app uses microphone to record your speech to transcribe.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>This app uses speech recognition to transcribe your speech.</string>
+	<key>CFBundleDisplayName</key>
+	<string>memolultion</string>
 </dict>
 </plist>
