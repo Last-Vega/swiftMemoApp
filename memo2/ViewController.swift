@@ -44,6 +44,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var datePicker: UIDatePicker = UIDatePicker()
     var localPushDate: Date?
     
+    var alertController: UIAlertController!
+    
     
     
     @IBAction func remindResetButton(_ sender: UIButton) {
@@ -76,6 +78,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         datePicker.timeZone = NSTimeZone.local
         datePicker.locale = Locale.current
         reminderText.inputView = datePicker
+        //現在時刻より前は設定できない
+        datePicker.minimumDate = Date()
 
         // 決定バーの生成
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
@@ -201,9 +205,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //            print("applyWithoutRemind")
             return
         }
-        setNotification(date: remindDate as Date, memoField: editMemoField.text!)
+        let timeNow = Date()
+        let modifiedDate = Calendar.current.date(byAdding: .minute, value: 2, to: timeNow)!
         
-        applyMemo()
+        
+        if remindDate < timeNow {
+            //過去を指定してしまった時の処理
+            //アラート表示＋２分後にリマインドセット
+            alert(title: "リマインダが過去に設定されています",
+                  message: "現在時刻の２分後にセットしました")
+            setNotification(date: modifiedDate as Date, memoField: editMemoField.text!)
+            applyMemo()
+        } else {
+            setNotification(date: remindDate as Date, memoField: editMemoField.text!)
+            applyMemo()
+            print("現在時刻")
+        }
+        
+
+        
 //        print("applyMemo")
 
     }
@@ -294,14 +314,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let content = UNMutableNotificationContent()
         content.title = "title"
         content.body = memoField
-        content.sound = .default
+        content.sound = UNNotificationSound.default
         //ユニークIDの設定
         let identifier = NSUUID().uuidString
         //登録用リクエストの設定
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         //通知をセット
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        print(date)
+        print(memoField)
+        print("setNotification")
     }
-
     
+    //過去時刻設定時のアラート
+    func alert(title:String, message:String) {
+        alertController = UIAlertController(title: title,
+                                   message: message,
+                                   preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK",
+                                       style: .default,
+                                       handler: nil))
+        present(alertController, animated: true)
+    }
 }
