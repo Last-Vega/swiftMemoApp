@@ -235,7 +235,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         editRow = indexPath.row
         editMemoField.text = memoList[editRow]["contents"]
-        guard let idx = memoList[editRow]["tag"]!.lastIndex(of:"$") else{
+        guard let idx = memoList[editRow]["tag"]!.lastIndex(of:"　") else{
             return
         }
         
@@ -287,9 +287,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         if editRow == unselectedRow {
-            memoList.insert(["contents": editMemoField.text!, "tag": selectTag + "$\t" + settingTime], at: 0)
+            memoList.insert(["contents": editMemoField.text!, "tag": selectTag + "　\t" + settingTime], at: 0)
         } else {
-            memoList[editRow] = ["contents": editMemoField.text!, "tag": selectTag + "$\t" + settingTime]
+            memoList[editRow] = ["contents": editMemoField.text!, "tag": selectTag + "　\t" + settingTime]
         }
 
         
@@ -335,7 +335,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds), repeats: false)
         //通知内容の設定
         let content = UNMutableNotificationContent()
-        content.title = "title"
+        content.title = selectTag
         content.body = memoField
         content.sound = .default
         //ユニークIDの設定
