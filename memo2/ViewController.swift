@@ -39,7 +39,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var recognitionTask: SFSpeechRecognitionTask?
     
     var selectTag = "なし"
-    var memoList: [String] = []
+    var memoList = [
+        ["contents": "内容", "tag": "タグ"]
+    ]
     var editRow: Int = unselectedRow
     var datePicker: UIDatePicker = UIDatePicker()
     var localPushDate: Date?
@@ -63,8 +65,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let defaults = UserDefaults.standard
         let loadedMemoList = defaults.object(forKey: "MEMO_LIST")
-        if (loadedMemoList as? [String] != nil) {
-            memoList = loadedMemoList as! [String]
+        if (loadedMemoList as? [[String: String]] != nil) {
+            memoList = loadedMemoList as! [[String: String]]
         }
         
         self.tagText.text = self.selectTag
@@ -95,6 +97,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //print("did appear")
+        editMemoField.becomeFirstResponder()
         self.tagText.text = self.selectTag
         presentingViewController?.endAppearanceTransition()
         
@@ -216,11 +219,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "memoCell", for: indexPath as IndexPath)
         if indexPath.row >= memoList.count {
             return cell
         }
-        cell.textLabel?.text = memoList[indexPath.row]
+        cell.textLabel?.text = memoList[indexPath.row]["contents"]
+        cell.detailTextLabel?.text = self.memoList[indexPath.row]["tag"]
         return cell
     }
     
@@ -230,7 +234,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return
         }
         editRow = indexPath.row
-        editMemoField.text = memoList[editRow]
+        editMemoField.text = memoList[editRow]["contents"]
     }
     
     
@@ -269,9 +273,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         if editRow == unselectedRow {
-            memoList.append(editMemoField.text!)
+            memoList.insert(["contents": editMemoField.text!, "tag": selectTag], at: 0)
         } else {
-            memoList[editRow] = editMemoField.text!
+            memoList[editRow] = ["contents": editMemoField.text!, "tag": memoList[editRow]["tag"]!]
         }
         
         let defaults = UserDefaults.standard
@@ -284,6 +288,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // UIDatePickerのDoneを押したら日時設定
     @objc func done() {
         reminderText.endEditing(true)
+        editMemoField.becomeFirstResponder()
         
         // 日付のフォーマット
         let formatter = DateFormatter()
