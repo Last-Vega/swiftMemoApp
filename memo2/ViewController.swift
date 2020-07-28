@@ -214,7 +214,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "memoCell", for: indexPath as IndexPath)
         if indexPath.row >= memoList.count {
             return cell
         }
