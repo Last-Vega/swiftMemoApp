@@ -252,11 +252,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                   message: "現在時刻の２分後にセットしました")
             setNotification(date: modifiedDate as Date, memoField: editMemoField.text!)
             applyMemo()
-//            print("現在時刻から２分セット後でセット")
+            print("現在時刻から２分セット後でセット")
         } else {
             setNotification(date: remindDate as Date, memoField: editMemoField.text!)
             applyMemo()
-//            print("リマインド時刻でセット")
+            print("リマインド時刻でセット")
         }
         //        applyMemo()
         return true
