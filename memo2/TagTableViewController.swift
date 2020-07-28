@@ -61,6 +61,10 @@ class TagTableViewController: UITableViewController {
         tagListView.reloadData()
     }
     
+    @IBAction func tapCancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
