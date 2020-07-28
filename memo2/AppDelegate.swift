@@ -32,32 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//           //push通知許可の要求
-//           UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
-//
-//           UNUserNotificationCenter.current().requestAuthorization(options:
-//                   [.alert, .sound, .badge]) { (granted, error) in
-//           }
-//           return true
-        // 通知許可の取得
-        UNUserNotificationCenter.current().requestAuthorization(
-        options: [.alert, .sound, .badge]){
-            (granted, _) in
-            if granted{
-                UNUserNotificationCenter.current().delegate = self
-            }
-        }
-        return true
-       }
+           //push通知許可の要求
+           UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+
+           UNUserNotificationCenter.current().requestAuthorization(options:
+                   [.alert, .sound, .badge]) { (granted, error) in
+           }
+           return true
+
     
 }
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(
-        _ center: UNUserNotificationCenter,
-        willPresent notification: UNNotification,
-        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
-    {
-//        // アプリ起動時も通知を行う
-//        completionHandler([ .badge, .sound, .alert ])
-    }
 }
