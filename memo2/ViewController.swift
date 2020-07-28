@@ -39,7 +39,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var recognitionTask: SFSpeechRecognitionTask?
     
     var selectTag = "なし"
-    var memoList: [String] = []
+    var memoList = [
+        ["contents": "内容", "tag": "タグ"]
+    ]
     var editRow: Int = unselectedRow
     var datePicker: UIDatePicker = UIDatePicker()
     var localPushDate: Date?
@@ -63,8 +65,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let defaults = UserDefaults.standard
         let loadedMemoList = defaults.object(forKey: "MEMO_LIST")
-        if (loadedMemoList as? [String] != nil) {
-            memoList = loadedMemoList as! [String]
+        if (loadedMemoList as? [[String: String]] != nil) {
+            memoList = loadedMemoList as! [[String: String]]
         }
         
         self.tagText.text = self.selectTag
@@ -218,7 +220,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if indexPath.row >= memoList.count {
             return cell
         }
-        cell.textLabel?.text = memoList[indexPath.row]
+        cell.textLabel?.text = memoList[indexPath.row]["contents"]
+        cell.detailTextLabel?.text = self.memoList[indexPath.row]["tag"]
         return cell
     }
     
@@ -228,7 +231,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return
         }
         editRow = indexPath.row
-        editMemoField.text = memoList[editRow]
+        editMemoField.text = memoList[editRow]["contents"]
     }
     
     
@@ -254,9 +257,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         if editRow == unselectedRow {
-            memoList.append(editMemoField.text!)
+            memoList.append(["contents": editMemoField.text!, "tag": selectTag])
         } else {
-            memoList[editRow] = editMemoField.text!
+            memoList[editRow] = ["contents": editMemoField.text!, "tag": memoList[editRow]["tag"]!]
         }
         
         let defaults = UserDefaults.standard
