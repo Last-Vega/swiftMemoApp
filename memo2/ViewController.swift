@@ -95,6 +95,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //print("did appear")
+        editMemoField.becomeFirstResponder()
         self.tagText.text = self.selectTag
         presentingViewController?.endAppearanceTransition()
         
@@ -257,7 +258,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         if editRow == unselectedRow {
-            memoList.append(["contents": editMemoField.text!, "tag": selectTag])
+            memoList.insert(["contents": editMemoField.text!, "tag": selectTag], at: 0)
         } else {
             memoList[editRow] = ["contents": editMemoField.text!, "tag": memoList[editRow]["tag"]!]
         }
@@ -272,6 +273,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // UIDatePickerのDoneを押したら日時設定
     @objc func done() {
         reminderText.endEditing(true)
+        editMemoField.becomeFirstResponder()
         
         // 日付のフォーマット
         let formatter = DateFormatter()
