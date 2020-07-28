@@ -75,13 +75,6 @@
                                     <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ncE-BW-gEu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jC7-Uk-t2H">
-                                <rect key="frame" x="30" y="527" width="108" height="30"/>
-                                <state key="normal" title="タグのリセット"/>
-                                <connections>
-                                    <action selector="tagResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Joe-Af-dCJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an0-06-L0n">
                                 <rect key="frame" x="231" y="527" width="153" height="30"/>
                                 <state key="normal" title="リマインダのリセット"/>
@@ -100,8 +93,6 @@
                             <constraint firstItem="Yxi-Vc-ZP2" firstAttribute="leading" secondItem="bBz-H5-FGo" secondAttribute="trailing" constant="83" id="HJL-Io-lA7"/>
                             <constraint firstItem="eU3-fd-2rx" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="HSG-kJ-TcO"/>
                             <constraint firstItem="jrn-Sg-pFo" firstAttribute="baseline" secondItem="BNW-83-Gts" secondAttribute="baseline" id="Ig8-z1-OiQ"/>
-                            <constraint firstItem="jC7-Uk-t2H" firstAttribute="top" secondItem="bBz-H5-FGo" secondAttribute="bottom" constant="2" id="Pgj-Rq-WiE"/>
-                            <constraint firstItem="jC7-Uk-t2H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="RG9-E3-wnv"/>
                             <constraint firstItem="YOh-RO-Dei" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Y45-zo-pzO"/>
                             <constraint firstItem="YOh-RO-Dei" firstAttribute="centerX" secondItem="wZS-zg-xLj" secondAttribute="centerX" id="ZjB-Wt-ujv"/>
                             <constraint firstItem="yYS-pt-1PL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cSX-ez-EBq"/>

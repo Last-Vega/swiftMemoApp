@@ -46,10 +46,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var localPushDate: Date?
     
     
-    @IBAction func tagResetButton(_ sender: UIButton) {
-        self.tagText.text = ""
-
-    }
     
     @IBAction func remindResetButton(_ sender: UIButton) {
         self.localPushDate = nil
