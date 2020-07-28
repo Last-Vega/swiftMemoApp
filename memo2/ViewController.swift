@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         audioEngine = AVAudioEngine()
-       
+        
         
         memoListView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         editMemoField.becomeFirstResponder()
@@ -66,9 +66,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (loadedMemoList as? [String] != nil) {
             memoList = loadedMemoList as! [String]
         }
-
+        
         self.tagText.text = self.selectTag
-
+        
         
         
         // ピッカー設定
@@ -76,17 +76,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         datePicker.timeZone = NSTimeZone.local
         datePicker.locale = Locale.current
         reminderText.inputView = datePicker
-
+        
         // 決定バーの生成
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         toolbar.setItems([spacelItem, doneItem], animated: true)
-
+        
         // インプットビュー設定(紐づいているUITextfieldへ代入)
         reminderText.inputView = datePicker
         reminderText.inputAccessoryView = toolbar
-
+        
     }
     
     
@@ -96,14 +96,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tagText.text = self.selectTag
         presentingViewController?.endAppearanceTransition()
         
-//        initRoundCorners()
-//        showStartButton()
-
+        //        initRoundCorners()
+        //        showStartButton()
+        
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
             DispatchQueue.main.async {
                 if authStatus != SFSpeechRecognizerAuthorizationStatus.authorized {
-                self.recordButton.isEnabled = false
-                self.recordButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+                    self.recordButton.isEnabled = false
+                    self.recordButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
                 }
             }
         }
@@ -112,63 +112,62 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func stopLiveTranscription() {
-       audioEngine.stop()
-       audioEngine.inputNode.removeTap(onBus: 0)
-       recognitionReq?.endAudio()
-     }
+        audioEngine.stop()
+        audioEngine.inputNode.removeTap(onBus: 0)
+        recognitionReq?.endAudio()
+    }
     
     func startLiveTranscription() throws {
-
-       // もし前回の音声認識タスクが実行中ならキャンセル
-       if let recognitionTask = self.recognitionTask {
-         recognitionTask.cancel()
-         self.recognitionTask = nil
-       }
-       editMemoField.text = ""
-
-       // 音声認識リクエストの作成
-       recognitionReq = SFSpeechAudioBufferRecognitionRequest()
-       guard let recognitionReq = recognitionReq else {
-         return
-       }
-       recognitionReq.shouldReportPartialResults = true
-
-       // オーディオセッションの設定
-       let audioSession = AVAudioSession.sharedInstance()
-       try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
-       try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-       let inputNode = audioEngine.inputNode
-
-       // マイク入力の設定
-       let recordingFormat = inputNode.outputFormat(forBus: 0)
-       inputNode.installTap(onBus: 0, bufferSize: 2048, format: recordingFormat) { (buffer, time) in
-         recognitionReq.append(buffer)
-       }
-       audioEngine.prepare()
-       try audioEngine.start()
-
-       recognitionTask = recognizer.recognitionTask(with: recognitionReq, resultHandler: { (result, error) in
-         if let error = error {
-           print("\(error)")
-         } else {
-           DispatchQueue.main.async {
-             self.editMemoField.text = result?.bestTranscription.formattedString
-           }
-         }
-       })
-     }
+        
+        // もし前回の音声認識タスクが実行中ならキャンセル
+        if let recognitionTask = self.recognitionTask {
+            recognitionTask.cancel()
+            self.recognitionTask = nil
+        }
+        editMemoField.text = ""
+        
+        // 音声認識リクエストの作成
+        recognitionReq = SFSpeechAudioBufferRecognitionRequest()
+        guard let recognitionReq = recognitionReq else {
+            return
+        }
+        recognitionReq.shouldReportPartialResults = true
+        
+        // オーディオセッションの設定
+        let audioSession = AVAudioSession.sharedInstance()
+        try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
+        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        let inputNode = audioEngine.inputNode
+        
+        // マイク入力の設定
+        let recordingFormat = inputNode.outputFormat(forBus: 0)
+        inputNode.installTap(onBus: 0, bufferSize: 2048, format: recordingFormat) { (buffer, time) in
+            recognitionReq.append(buffer)
+        }
+        audioEngine.prepare()
+        try audioEngine.start()
+        
+        recognitionTask = recognizer.recognitionTask(with: recognitionReq, resultHandler: { (result, error) in
+            if let error = error {
+                print("\(error)")
+            } else {
+                DispatchQueue.main.async {
+                    self.editMemoField.text = result?.bestTranscription.formattedString
+                }
+            }
+        })
+    }
     
     
     
     @IBAction func recordButtonTapped(_ sender: Any) {
-//        print("stop")
-
-          stopLiveTranscription()
+        //print("stop")
+        stopLiveTranscription()
     }
     
     
     @IBAction func recordButtonStart(_ sender: Any) {
-//        print("start")
+        //print("start")
         try! startLiveTranscription()
     }
     
@@ -194,19 +193,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    @IBAction func tapSubmitButton(_ sender: Any) {
-        //local push
-        guard let remindDate = self.localPushDate else{
-            applyMemo()
-//            print("applyWithoutRemind")
-            return
-        }
-        setNotification(date: remindDate as Date, memoField: editMemoField.text!)
-        
-        applyMemo()
-//        print("applyMemo")
-
-    }
+//    @IBAction func tapSubmitButton(_ sender: Any) {
+//        //local push
+//        guard let remindDate = self.localPushDate else{
+//            applyMemo()
+//            //            print("applyWithoutRemind")
+//            return
+//        }
+//        setNotification(date: remindDate as Date, memoField: editMemoField.text!)
+//
+//        applyMemo()
+//        //        print("applyMemo")
+//
+//    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -234,8 +233,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        tapSubmitButton(UIButton.self)
-//        applyMemo()
+//        tapSubmitButton(UIButton.self)
+        //local push
+        guard let remindDate = self.localPushDate else{
+            applyMemo()
+            //            print("applyWithoutRemind")
+            return true
+        }
+        setNotification(date: remindDate as Date, memoField: editMemoField.text!)
+
+        applyMemo()
+        //        applyMemo()
         return true
     }
     
@@ -261,20 +269,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // UIDatePickerのDoneを押したら日時設定
     @objc func done() {
         reminderText.endEditing(true)
-
+        
         // 日付のフォーマット
         let formatter = DateFormatter()
         self.localPushDate = datePicker.date
-//        print("localPushDate")
-//        print(self.localPushDate)
+        //        print("localPushDate")
+        //        print(self.localPushDate)
         
         //"yyyy年MM月dd日"を"yyyy/MM/dd"したりして出力の仕方を好きに変更できるよ
         formatter.dateFormat = "MM/dd/HH:mm"
-
+        
         //(from: datePicker.date))を指定してあげることで
         //datePickerで指定した日付が表示される
         reminderText.text = "\(formatter.string(from: datePicker.date))"
-
+        
     }
     
     func setNotification(date: Date, memoField: String) {
@@ -302,6 +310,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //通知をセット
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
-
+    
     
 }
