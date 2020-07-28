@@ -16,7 +16,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YOh-RO-Dei">
-                                <rect key="frame" x="87" y="69" width="240" height="34"/>
+                                <rect key="frame" x="85" y="393" width="255" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="D2O-Uc-mC3"/>
+                                    <constraint firstAttribute="width" constant="255" id="uwS-5b-0eB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -24,61 +28,83 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メモ:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYS-pt-1PL">
-                                <rect key="frame" x="20" y="74" width="40" height="20"/>
+                                <rect key="frame" x="30" y="400" width="40" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Hp3-Y1-wYY"/>
+                                    <constraint firstAttribute="height" constant="20" id="Ps9-gH-HSo"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU3-fd-2rx">
-                                <rect key="frame" x="347" y="74" width="47" height="30"/>
-                                <state key="normal" title="確定"/>
-                                <connections>
-                                    <action selector="tapSubmitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QyN-SD-VfQ"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wZS-zg-xLj">
-                                <rect key="frame" x="67" y="128" width="280" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="b23-8m-uNy"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="0bo-7E-NQJ"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrn-Sg-pFo">
-                                <rect key="frame" x="30" y="493" width="31" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrn-Sg-pFo">
+                                <rect key="frame" x="20" y="449" width="29" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="31" id="fH4-TE-l6j"/>
+                                    <constraint firstAttribute="width" constant="29" id="37o-Ls-N2i"/>
+                                    <constraint firstAttribute="height" constant="22" id="FiT-n4-2SJ"/>
                                 </constraints>
-                                <state key="normal" title="タグ"/>
+                                <state key="normal" title="タグ" image="tag" catalog="system"/>
                                 <connections>
                                     <segue destination="pZV-IU-Yqf" kind="presentation" identifier="setTag" modalPresentationStyle="fullScreen" id="eTw-dy-kMe"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bBz-H5-FGo">
-                                <rect key="frame" x="71" y="491" width="100" height="34"/>
+                                <rect key="frame" x="50" y="444" width="130" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="2ZD-fE-kQS"/>
+                                    <constraint firstAttribute="height" constant="34" id="JAK-mK-fDZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yxi-Vc-ZP2">
-                                <rect key="frame" x="254" y="491" width="130" height="34"/>
+                                <rect key="frame" x="247" y="445" width="130" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="IuY-CD-Jkn"/>
+                                    <constraint firstAttribute="height" constant="34" id="ppp-Hy-UmB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNW-83-Gts">
-                                <rect key="frame" x="191" y="493" width="77" height="30"/>
-                                <state key="normal" title="リマインダ"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNW-83-Gts">
+                                <rect key="frame" x="215" y="451" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="PM4-Tb-WD9"/>
+                                    <constraint firstAttribute="width" constant="22" id="dab-0k-iLX"/>
+                                </constraints>
+                                <state key="normal" title="リマインダ" image="calendar" catalog="system"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNN-pn-ltt">
-                                <rect key="frame" x="5" y="111" width="62" height="30"/>
-                                <state key="normal" title="音声入力"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNN-pn-ltt">
+                                <rect key="frame" x="361" y="396" width="33" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="6af-nT-c4Y"/>
+                                    <constraint firstAttribute="width" constant="33" id="Xko-Rt-76X"/>
+                                </constraints>
+                                <state key="normal" title="音声入力" image="mic.fill" catalog="system"/>
                                 <connections>
                                     <action selector="recordButtonStart:" destination="BYZ-38-t0r" eventType="touchDown" id="Plh-gG-OxA"/>
                                     <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ncE-BW-gEu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an0-06-L0n">
-                                <rect key="frame" x="231" y="527" width="153" height="30"/>
-                                <state key="normal" title="リマインダのリセット"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wZS-zg-xLj">
+                                <rect key="frame" x="57" y="54" width="300" height="330"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="330" id="2Ca-h6-fHm"/>
+                                    <constraint firstAttribute="width" constant="300" id="TNb-Ax-srL"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="b23-8m-uNy"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="0bo-7E-NQJ"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an0-06-L0n">
+                                <rect key="frame" x="385" y="451" width="27" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="A9f-pb-vCx"/>
+                                    <constraint firstAttribute="width" constant="27" id="PML-tU-mPk"/>
+                                </constraints>
+                                <state key="normal" title="リマインダのリセット" image="arrow.counterclockwise" catalog="system"/>
                                 <connections>
                                     <action selector="remindResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="InP-8m-O7j"/>
                                 </connections>
@@ -86,32 +112,24 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="YOh-RO-Dei" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5aB-pp-fhc"/>
-                            <constraint firstItem="BNW-83-Gts" firstAttribute="leading" secondItem="bBz-H5-FGo" secondAttribute="trailing" constant="20" id="6Vf-d2-eOm"/>
-                            <constraint firstItem="YOh-RO-Dei" firstAttribute="leading" secondItem="yYS-pt-1PL" secondAttribute="trailing" constant="27" id="CKX-9o-7Wv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BNW-83-Gts" secondAttribute="trailing" constant="146" id="ENI-CF-EAZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="an0-06-L0n" secondAttribute="trailing" constant="30" id="Gmw-Z4-gEN"/>
-                            <constraint firstItem="Yxi-Vc-ZP2" firstAttribute="leading" secondItem="bBz-H5-FGo" secondAttribute="trailing" constant="83" id="HJL-Io-lA7"/>
-                            <constraint firstItem="eU3-fd-2rx" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="HSG-kJ-TcO"/>
-                            <constraint firstItem="jrn-Sg-pFo" firstAttribute="baseline" secondItem="BNW-83-Gts" secondAttribute="baseline" id="Ig8-z1-OiQ"/>
-                            <constraint firstItem="YOh-RO-Dei" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Y45-zo-pzO"/>
-                            <constraint firstItem="YOh-RO-Dei" firstAttribute="centerX" secondItem="wZS-zg-xLj" secondAttribute="centerX" id="ZjB-Wt-ujv"/>
-                            <constraint firstItem="yYS-pt-1PL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cSX-ez-EBq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bBz-H5-FGo" secondAttribute="bottom" constant="337" id="ebf-12-Gvf"/>
-                            <constraint firstItem="yYS-pt-1PL" firstAttribute="top" secondItem="eU3-fd-2rx" secondAttribute="top" id="gIK-bO-MDC"/>
-                            <constraint firstItem="bBz-H5-FGo" firstAttribute="leading" secondItem="jrn-Sg-pFo" secondAttribute="trailing" constant="10" id="gOY-cZ-meV"/>
-                            <constraint firstItem="jrn-Sg-pFo" firstAttribute="centerY" secondItem="bBz-H5-FGo" secondAttribute="centerY" id="hY1-dt-Vp1"/>
-                            <constraint firstItem="yYS-pt-1PL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="jpL-C3-in0"/>
-                            <constraint firstItem="xNN-pn-ltt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="kfw-zh-XCV"/>
-                            <constraint firstItem="an0-06-L0n" firstAttribute="top" secondItem="Yxi-Vc-ZP2" secondAttribute="bottom" constant="2" id="l8q-5w-9zU"/>
-                            <constraint firstItem="wZS-zg-xLj" firstAttribute="leading" secondItem="xNN-pn-ltt" secondAttribute="trailing" id="mzp-e4-4Gi"/>
-                            <constraint firstItem="wZS-zg-xLj" firstAttribute="top" secondItem="YOh-RO-Dei" secondAttribute="bottom" constant="25" id="pfj-d6-ugG"/>
-                            <constraint firstItem="eU3-fd-2rx" firstAttribute="leading" secondItem="YOh-RO-Dei" secondAttribute="trailing" constant="20" id="qlB-ly-PdL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yxi-Vc-ZP2" secondAttribute="trailing" constant="30" id="tTG-si-LKX"/>
-                            <constraint firstItem="bBz-H5-FGo" firstAttribute="baseline" secondItem="Yxi-Vc-ZP2" secondAttribute="baseline" id="wPL-M4-nUx"/>
-                            <constraint firstItem="xNN-pn-ltt" firstAttribute="top" secondItem="yYS-pt-1PL" secondAttribute="bottom" constant="17" id="wt9-zk-L33"/>
-                            <constraint firstItem="bBz-H5-FGo" firstAttribute="top" secondItem="wZS-zg-xLj" secondAttribute="bottom" constant="63" id="xxv-Ac-AIx"/>
-                            <constraint firstItem="jrn-Sg-pFo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="yjF-E1-opR"/>
+                            <constraint firstItem="xNN-pn-ltt" firstAttribute="top" secondItem="wZS-zg-xLj" secondAttribute="bottom" constant="12" id="3Z6-3r-Da4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xNN-pn-ltt" secondAttribute="trailing" constant="20" id="6tr-N1-mUx"/>
+                            <constraint firstItem="bBz-H5-FGo" firstAttribute="top" secondItem="YOh-RO-Dei" secondAttribute="bottom" constant="17" id="A3b-4J-JxJ"/>
+                            <constraint firstItem="yYS-pt-1PL" firstAttribute="top" secondItem="wZS-zg-xLj" secondAttribute="bottom" constant="16" id="C0M-46-d8w"/>
+                            <constraint firstItem="YOh-RO-Dei" firstAttribute="leading" secondItem="yYS-pt-1PL" secondAttribute="trailing" constant="15" id="DAN-0b-EhG"/>
+                            <constraint firstItem="yYS-pt-1PL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Vk9-fZ-szM"/>
+                            <constraint firstItem="YOh-RO-Dei" firstAttribute="top" secondItem="wZS-zg-xLj" secondAttribute="bottom" constant="9" id="YJp-Ho-0Ky"/>
+                            <constraint firstItem="BNW-83-Gts" firstAttribute="leading" secondItem="bBz-H5-FGo" secondAttribute="trailing" constant="35" id="ZSm-l8-vWM"/>
+                            <constraint firstItem="Yxi-Vc-ZP2" firstAttribute="leading" secondItem="BNW-83-Gts" secondAttribute="trailing" constant="10" id="a3y-7E-F5t"/>
+                            <constraint firstItem="BNW-83-Gts" firstAttribute="top" secondItem="YOh-RO-Dei" secondAttribute="bottom" constant="24" id="iCY-0M-F0U"/>
+                            <constraint firstItem="wZS-zg-xLj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jgO-h8-dy9"/>
+                            <constraint firstItem="Yxi-Vc-ZP2" firstAttribute="top" secondItem="YOh-RO-Dei" secondAttribute="bottom" constant="18" id="jpQ-qD-jL7"/>
+                            <constraint firstItem="jrn-Sg-pFo" firstAttribute="top" secondItem="yYS-pt-1PL" secondAttribute="bottom" constant="29" id="o0y-3M-F60"/>
+                            <constraint firstItem="an0-06-L0n" firstAttribute="top" secondItem="xNN-pn-ltt" secondAttribute="bottom" constant="26" id="r42-bo-2hI"/>
+                            <constraint firstItem="an0-06-L0n" firstAttribute="leading" secondItem="Yxi-Vc-ZP2" secondAttribute="trailing" constant="8" id="uTM-AT-oWV"/>
+                            <constraint firstItem="jrn-Sg-pFo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ujz-GT-eyL"/>
+                            <constraint firstItem="wZS-zg-xLj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="v9j-m2-toq"/>
+                            <constraint firstItem="bBz-H5-FGo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="wXi-xT-Vzm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -238,4 +256,10 @@
             <point key="canvasLocation" x="780" y="121"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="mic.fill" catalog="system" width="108" height="128"/>
+        <image name="tag" catalog="system" width="128" height="116"/>
+    </resources>
 </document>
