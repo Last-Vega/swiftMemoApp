@@ -27,7 +27,8 @@ You can choose three ways
 - Clone this repository 
 - select Open with Xcode window
 - Save zip file in your MacOS devices 
-(because Apple Developers is not free.)
+
+(because Apple Developers IS NOT FREE.)
 
 `clone https://github.com/Memolution/test1.git`
 
