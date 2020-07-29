@@ -24,6 +24,8 @@ Memolution helps you take notes because
 ## Install
 Clone this repository or Save zip file in your MacOS devices. (because Apple Developers is not free.)
 
+`clone https://github.com/Memolution/test1.git`
+
 ## Usage
 Just install this app in your smartphone following the steps above and start this app, then allow to use Notifications and Microphone.
 
