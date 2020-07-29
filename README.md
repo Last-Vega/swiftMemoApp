@@ -10,7 +10,7 @@ Memolution helps you take notes because
 ## Demo
 
 
-# Requirements
+## Requirements
 - iOS 
 - (Xcode 11.*)
 
