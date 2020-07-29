@@ -18,7 +18,7 @@ Memolution helps you take notes because
 
 
 ## Usage
-Just install this app in your smartphone and allow to use Notifications and Microphone.
+Just install this app in your smartphone following the steps above and start this app, then allow to use Notifications and Microphone.
 
 ## Contribution
 enPiT teachers and mentors
