@@ -33,7 +33,7 @@ Just install this app in your smartphone following the steps above and start thi
 enPiT teachers and mentors
 
 ## Licence
-Memolution team belogs to enPiT Tsukuba 2020
+Memolution team belongs to enPiT Tsukuba 2020
 
 ## Author
 [Memolution team](https://github.com/Memolution)
