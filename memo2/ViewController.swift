@@ -159,6 +159,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //print("stop")
         stopLiveTranscription()
     }
+    @IBAction func recordButtonUpOutside(_ sender: Any) {
+        stopLiveTranscription()
+    }
     
     
     @IBAction func recordButtonStart(_ sender: Any) {
