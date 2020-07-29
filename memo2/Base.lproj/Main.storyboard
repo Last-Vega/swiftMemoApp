@@ -43,7 +43,7 @@
                                     <constraint firstAttribute="width" constant="29" id="37o-Ls-N2i"/>
                                     <constraint firstAttribute="height" constant="22" id="FiT-n4-2SJ"/>
                                 </constraints>
-                                <state key="normal" title="タグ" image="tag" catalog="system"/>
+                                <state key="normal" image="tag" catalog="system"/>
                                 <connections>
                                     <segue destination="pZV-IU-Yqf" kind="presentation" identifier="setTag" modalPresentationStyle="fullScreen" id="eTw-dy-kMe"/>
                                 </connections>
@@ -72,7 +72,7 @@
                                     <constraint firstAttribute="height" constant="22" id="PM4-Tb-WD9"/>
                                     <constraint firstAttribute="width" constant="22" id="dab-0k-iLX"/>
                                 </constraints>
-                                <state key="normal" title="リマインダ" image="calendar" catalog="system"/>
+                                <state key="normal" image="calendar" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNN-pn-ltt">
                                 <rect key="frame" x="361" y="346" width="33" height="29"/>
@@ -80,7 +80,7 @@
                                     <constraint firstAttribute="height" constant="29" id="6af-nT-c4Y"/>
                                     <constraint firstAttribute="width" constant="33" id="Xko-Rt-76X"/>
                                 </constraints>
-                                <state key="normal" title="音声入力" image="mic.fill" catalog="system"/>
+                                <state key="normal" image="mic.fill" catalog="system"/>
                                 <connections>
                                     <action selector="recordButtonStart:" destination="BYZ-38-t0r" eventType="touchDown" id="Plh-gG-OxA"/>
                                     <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ncE-BW-gEu"/>
@@ -130,7 +130,7 @@
                                     <constraint firstAttribute="height" constant="22" id="A9f-pb-vCx"/>
                                     <constraint firstAttribute="width" constant="27" id="PML-tU-mPk"/>
                                 </constraints>
-                                <state key="normal" title="リマインダのリセット" image="arrow.counterclockwise" catalog="system"/>
+                                <state key="normal" image="arrow.counterclockwise" catalog="system"/>
                                 <connections>
                                     <action selector="remindResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="InP-8m-O7j"/>
                                 </connections>
@@ -247,7 +247,7 @@
                                     <constraint firstAttribute="height" constant="22" id="pmH-rF-hdg"/>
                                     <constraint firstAttribute="width" constant="36" id="vco-45-FO4"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="mic.fill" catalog="system"/>
+                                <state key="normal" image="mic.fill" catalog="system"/>
                                 <connections>
                                     <action selector="recordButtonDown:" destination="uUt-Bi-4S0" eventType="touchDown" id="W0b-IO-eyC"/>
                                     <action selector="recordButtonUpInside:" destination="uUt-Bi-4S0" eventType="touchUpInside" id="CMG-mg-igi"/>
