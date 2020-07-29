@@ -5,12 +5,10 @@
 //  Created by Ryota Sato on 2020/07/26.
 //  Copyright © 2020 佐藤祐吾. All rights reserved.
 //
-
 import UIKit
 
 import Speech
 import AVFoundation
-
 
 class TagCreateViewController: UIViewController, UITextFieldDelegate {
 
@@ -19,35 +17,33 @@ class TagCreateViewController: UIViewController, UITextFieldDelegate {
     var recognitionReq: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
 
-    @IBOutlet weak var tagNameField: UITextField!
-    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var tagName: UITextField!
+    @IBOutlet weak var tagNameRecordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        tagNameField.delegate = self
-        tagNameField.becomeFirstResponder()
-        
         audioEngine = AVAudioEngine()
+        tagName.delegate = self
+        tagName.becomeFirstResponder()
     }
-  
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //print("did appear")
-        tagNameField.becomeFirstResponder()
+        tagName.becomeFirstResponder()
+        presentingViewController?.endAppearanceTransition()
         
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
             DispatchQueue.main.async {
                 if authStatus != SFSpeechRecognizerAuthorizationStatus.authorized {
-                    self.recordButton.isEnabled = false
-                    self.recordButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+                    self.tagNameRecordButton.isEnabled = false
+                    self.tagNameRecordButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
                 }
             }
         }
     }
-    
     
     func stopLiveTranscription() {
         audioEngine.stop()
@@ -62,7 +58,7 @@ class TagCreateViewController: UIViewController, UITextFieldDelegate {
             recognitionTask.cancel()
             self.recognitionTask = nil
         }
-        tagNameField.text = ""
+        tagName.text = ""
         
         // 音声認識リクエストの作成
         recognitionReq = SFSpeechAudioBufferRecognitionRequest()
@@ -90,41 +86,33 @@ class TagCreateViewController: UIViewController, UITextFieldDelegate {
                 print("\(error)")
             } else {
                 DispatchQueue.main.async {
-                    self.tagNameField.text = result?.bestTranscription.formattedString
+                    self.tagName.text = result?.bestTranscription.formattedString
                 }
             }
         })
     }
     
-    @IBAction func recordButtonTapped(_ sender: Any) {
-        //print("stop")
+    
+    @IBAction func recordButtonDown(_ sender: Any) {
+        try! startLiveTranscription()
+    }
+    
+    @IBAction func recordButtonUpInside(_ sender: Any) {
         stopLiveTranscription()
     }
     
     
-    @IBAction func recordButtonStart(_ sender: Any) {
-        //print("start")
-        try! startLiveTranscription()
-    }
-    
-    
-    @IBAction func tapCreateButton(_ sender: Any) {
-        let _ = textFieldShouldReturn(tagNameField)
-    }
-    
-
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //print("return key")
         let preNC = self.navigationController
         let preVC = preNC!.viewControllers[preNC!.viewControllers.count - 2] as! TagTableViewController
-        preVC.addTag = self.tagNameField.text ?? ""
+        preVC.addTag = self.tagName.text ?? ""
 
         self.navigationController?.popViewController(animated: true)
         return true
     }
 
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
