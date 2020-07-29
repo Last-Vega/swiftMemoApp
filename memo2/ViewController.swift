@@ -235,6 +235,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         self.tagText.text = String(memoList[editRow]["tag"]![..<idx])
+        self.selectTag = self.tagText.text!
     }
     
     
