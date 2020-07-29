@@ -14,15 +14,11 @@ Memolution helps you take notes because
 - iOS 
 - (Xcode 11.*)
 
-## VS. 
-
+## Install
 
 
 ## Usage
-
-
-## Install
-
+Just install this app in your smartphone and allow to use Notifications and Microphone.
 
 ## Contribution
 enPiT teachers and mentors
@@ -31,5 +27,4 @@ enPiT teachers and mentors
 Memolution team belogs to enPiT Tsukuba 2020
 
 ## Author
-
 [Memolution team](https://github.com/Memolution)
