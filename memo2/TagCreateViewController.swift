@@ -101,6 +101,9 @@ class TagCreateViewController: UIViewController, UITextFieldDelegate {
         stopLiveTranscription()
     }
     
+    @IBAction func recordButtonUpOutSide(_ sender: Any) {
+        stopLiveTranscription()
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //print("return key")

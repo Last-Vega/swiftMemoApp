@@ -84,6 +84,7 @@
                                 <connections>
                                     <action selector="recordButtonStart:" destination="BYZ-38-t0r" eventType="touchDown" id="Plh-gG-OxA"/>
                                     <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ncE-BW-gEu"/>
+                                    <action selector="recordButtonUpOutside:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="ZKu-r2-iPA"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wZS-zg-xLj">
@@ -251,6 +252,7 @@
                                 <connections>
                                     <action selector="recordButtonDown:" destination="uUt-Bi-4S0" eventType="touchDown" id="W0b-IO-eyC"/>
                                     <action selector="recordButtonUpInside:" destination="uUt-Bi-4S0" eventType="touchUpInside" id="CMG-mg-igi"/>
+                                    <action selector="recordButtonUpOutSide:" destination="uUt-Bi-4S0" eventType="touchUpOutside" id="q7V-1z-xEY"/>
                                 </connections>
                             </button>
                         </subviews>
