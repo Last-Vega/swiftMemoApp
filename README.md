@@ -8,6 +8,7 @@ Memolution helps you take notes because
 - push notification always reminds you of what you have to do or you don't want to miss.
 
 ## Demo
+![c860e7c1a889d74e-2](https://user-images.githubusercontent.com/60470162/88744581-c0462e80-d182-11ea-8555-e463f9262422.gif)
 
 
 ## Requirements
