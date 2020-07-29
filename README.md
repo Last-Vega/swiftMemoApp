@@ -22,9 +22,15 @@ Memolution helps you take notes because
 - (Xcode 11.*)
 
 ## Install
-Clone this repository or Save zip file in your MacOS devices. (because Apple Developers is not free.)
+You can choose three ways
+
+- Clone this repository 
+- select Open with Xcode window
+- Save zip file in your MacOS devices 
+(because Apple Developers is not free.)
 
 `clone https://github.com/Memolution/test1.git`
+<img width="350" alt="スクリーンショット 2020-07-29 10 24 22" src="https://user-images.githubusercontent.com/60470162/88745792-d43f5f80-d185-11ea-8234-f2a981d61893.png">
 
 ## Usage
 Just install this app in your smartphone following the steps above and start this app, then allow to use Notifications and Microphone.
