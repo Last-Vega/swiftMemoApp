@@ -30,6 +30,7 @@ You can choose three ways
 (because Apple Developers is not free.)
 
 `clone https://github.com/Memolution/test1.git`
+
 <img width="350" alt="スクリーンショット 2020-07-29 10 24 22" src="https://user-images.githubusercontent.com/60470162/88745792-d43f5f80-d185-11ea-8234-f2a981d61893.png">
 
 ## Usage
