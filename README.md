@@ -11,7 +11,7 @@ Memolution helps you take notes because
 
 
 ## Requirements
-- iOS 
+- iOS devices
 - (Xcode 11.*)
 
 ## Install
@@ -28,3 +28,4 @@ Memolution team belogs to enPiT Tsukuba 2020
 
 ## Author
 [Memolution team](https://github.com/Memolution)
+
