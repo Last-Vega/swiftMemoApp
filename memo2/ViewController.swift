@@ -48,12 +48,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var alertController: UIAlertController!
     
     
-    @IBAction func remindResetButton(_ sender: UIButton) {
-        self.localPushDate = nil
-        reminderText.text = ""
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -70,7 +64,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         self.tagText.text = self.selectTag
-        
         
         
         // ピッカー設定
@@ -100,9 +93,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         editMemoField.becomeFirstResponder()
         self.tagText.text = self.selectTag
         presentingViewController?.endAppearanceTransition()
-        
-        //        initRoundCorners()
-        //        showStartButton()
         
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
             DispatchQueue.main.async {
@@ -176,6 +166,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         try! startLiveTranscription()
     }
     
+    
+    @IBAction func remindResetButton(_ sender: UIButton) {
+        self.localPushDate = nil
+        reminderText.text = ""
+    }
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
