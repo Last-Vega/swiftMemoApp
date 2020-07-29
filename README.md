@@ -8,11 +8,12 @@ Memolution helps you take notes because
 - push notification always reminds you of what you have to do or you don't want to miss.
 
 ## Demo
-- Basic Usage ![c860e7c1a889d74e-2](https://user-images.githubusercontent.com/60470162/88744581-c0462e80-d182-11ea-8555-e463f9262422.gif)
+![c860e7c1a889d74e-2](https://user-images.githubusercontent.com/60470162/88744581-c0462e80-d182-11ea-8555-e463f9262422.gif)
 
-- Voice Input ![a80187f9d956bc12](https://user-images.githubusercontent.com/60470162/88744658-f5eb1780-d182-11ea-85d5-d7e69644193c.gif)
-
-- Create new Label ![bf8b406f2ed4b7cc](https://user-images.githubusercontent.com/60470162/88744662-f71c4480-d182-11ea-9a3c-af290e6441c5.gif)
+ 
+![a80187f9d956bc12](https://user-images.githubusercontent.com/60470162/88744658-f5eb1780-d182-11ea-85d5-d7e69644193c.gif)
+ 
+![bf8b406f2ed4b7cc](https://user-images.githubusercontent.com/60470162/88744662-f71c4480-d182-11ea-9a3c-af290e6441c5.gif)
 
 
 ## Requirements
