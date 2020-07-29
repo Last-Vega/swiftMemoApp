@@ -1,16 +1,19 @@
 # Memolution
+You can take notes as often as you breathes.
 
 ## Description
-You can take notes as often as you breathes
+- Memolution helps you take notes because when you start this app, keyboad always appears. 
 
 
 ## Demo
 
 
+# Requirements
+- iOS 
+- (Xcode 11.*)
+
 ## VS. 
 
-
-## Requirement
 
 
 ## Usage
@@ -20,10 +23,10 @@ You can take notes as often as you breathes
 
 
 ## Contribution
-
+enPiT teachers and mentors
 
 ## Licence
-
+Memolution team belogs to enPiT Tsukuba 2020
 
 ## Author
 
